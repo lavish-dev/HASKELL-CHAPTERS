@@ -1,0 +1,85 @@
+-- HC2T2 - Function Implementations
+add :: Int -> Int -> Int
+add x y = x + y
+
+isEven :: Int -> Bool
+isEven x = x `mod` 2 == 0
+
+concatStrings :: String -> String -> String
+concatStrings s1 s2 = s1 ++ s2
+
+-- HC2T3 - Immutable Variables
+myAge :: Int
+myAge = 21
+
+-- HC2t4 - converting between infix and pefix notations
+main :: IO ()
+main = do
+  putStrLn "add 3 5:"
+  print (add 3 5)
+
+  putStrLn "isEven 4:"
+  print (isEven 4)
+
+  putStrLn "concatStrings \"Hello, \" \"World!\":"
+  print (concatStrings "Hello, " "World!")
+
+  putStrLn "circleArea 2.0:"
+  print (circleArea 2.0)
+
+  putStrLn "maxOfThree 3 7 5:"
+  print (maxOfThree 3 7 5)
+
+  putStrLn "smallNumber (Int):"
+  print smallNumber
+
+  putStrLn "bigNumber (Integer):"
+  print bigNumber
+
+  putStrLn "Boolean Expressions:"
+  print bool1
+  print bool2
+  print bool3
+  print bool4
+
+  putStrLn "Prefix/Infix conversions:"
+  print ((+) 5 3)     -- prefix version of 5 + 3
+  print (10 * 4)      -- infix version
+  print ((&&) True False)
+  print (True && False)
+
+piValue :: Double
+piValue = 3.14159
+
+greeting :: String
+greeting = "Hello, Haskell!"
+
+isHaskellFun :: Bool
+isHaskellFun = True
+
+-- HC2T5 - More Functions
+circleArea :: Float -> Float
+circleArea r = pi * r * r
+
+maxOfThree :: Int -> Int -> Int -> Int
+maxOfThree x y z = max x (max y z)
+
+-- HC2T6 - Int vs Integer
+smallNumber :: Int
+smallNumber = 2^62
+
+bigNumber :: Integer
+bigNumber = 2^127
+
+-- HC2T7 - Boolean Expressions
+bool1 :: Bool
+bool1 = True && True
+
+bool2 :: Bool
+bool2 = False || False
+
+bool3 :: Bool
+bool3 = not False
+
+bool4 :: Bool
+bool4 = 10 > 20
