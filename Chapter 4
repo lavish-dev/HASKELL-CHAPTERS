@@ -1,0 +1,71 @@
+-- HC4T1 - Task 1: weatherReport
+weatherReport :: String -> String
+weatherReport "sunny"  = "It's a bright and beautiful day!"
+weatherReport "rainy"  = "Don't forget your umbrella!"
+weatherReport "cloudy" = "A bit gloomy, but no rain yet!"
+weatherReport _        = "Weather unknown"
+
+-- HC4T2 - Task 2: dayType
+dayType :: String -> String
+dayType "Saturday" = "It's a weekend!"
+dayType "Sunday"   = "It's a weekend!"
+dayType day
+  | day `elem` ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] = "It's a weekday."
+  | otherwise = "Invalid day"
+
+-- HC4T3 - Task 3: gradeComment
+gradeComment :: Int -> String
+gradeComment n
+  | n >= 90 && n <= 100 = "Excellent!"
+  | n >= 70 && n <= 89  = "Good job!"
+  | n >= 50 && n <= 69  = "You passed."
+  | n >= 0  && n <= 49  = "Better luck next time."
+  | otherwise           = "Invalid grade"
+
+-- HC4T4 & HC4T5: specialBirthday with pattern matching and catch-all
+specialBirthday :: Int -> String
+specialBirthday 1  = "First birthday! 🎉"
+specialBirthday 18 = "Adult now! 🎂"
+specialBirthday 50 = "Golden Jubilee!"
+specialBirthday age = "You are " ++ show age ++ " years old today!"
+
+-- HC4T6 - Task 6: whatsInsideThisList
+whatsInsideThisList :: [a] -> String
+whatsInsideThisList []       = "Empty list!"
+whatsInsideThisList [_]      = "One element inside."
+whatsInsideThisList [_, _]   = "Two elements inside."
+whatsInsideThisList _        = "More than two elements!"
+
+-- HC4T7 - Task 7: firstAndThird
+firstAndThird :: [a] -> [a]
+firstAndThird (x:_:z:_) = [x, z]
+firstAndThird _         = []
+
+-- HC4T8 - Task 8: extractTupleValues
+extractTupleValues :: (Int, String, Bool) -> String
+extractTupleValues (age, name, status) =
+  name ++ " is " ++ show age ++ " years old and status is " ++ show status
+
+-- MAIN FUNCTION TO TEST
+main :: IO ()
+main = do
+  putStrLn "\nHC4T1 - weatherReport \"sunny\":"
+  print (weatherReport "sunny")
+
+  putStrLn "\nHC4T2 - dayType \"Sunday\":"
+  print (dayType "Sunday")
+
+  putStrLn "\nHC4T3 - gradeComment 85:"
+  print (gradeComment 85)
+
+  putStrLn "\nHC4T4/5 - specialBirthday 25:"
+  print (specialBirthday 25)
+
+  putStrLn "\nHC4T6 - whatsInsideThisList [1,2,3]:"
+  print (whatsInsideThisList [1,2,3])
+
+  putStrLn "\nHC4T7 - firstAndThird [10,20,30,40]:"
+  print (firstAndThird [10,20,30,40])
+
+  putStrLn "\nHC4T8 - extractTupleValues (22, \"Alice\", True):"
+  print (extractTupleValues (22, "Alice", True))
